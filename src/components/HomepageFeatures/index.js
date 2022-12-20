@@ -4,32 +4,33 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Technical Achiever',
+    Svg: require('@site/static/img/undraw_code_review.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        With extensive experience implementing frameworks such as Selenium, Cypress and Playwright in a range of scenarios,
+        I have a deep understanding of the latest automation tooling.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Developer Acceleration',
+    Svg: require('@site/static/img/undraw_dev_productivity.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        I continuously look for improvements, and not just in code.
+        I look at improving broader concerns like developer efficiency or robustness of CI/CD pipelines.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Automation Coach',
+    Svg: require('@site/static/img/undraw_grid_design.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        With experience teaching automation to audiences of varying technical ability, 
+        I am well positioned to upskill teams on automation fundamentals.
+
       </>
     ),
   },
