@@ -41,6 +41,7 @@ const config = {
         },
         blog: {
           showReadingTime: true,
+          
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -65,7 +66,7 @@ const config = {
           {to: '/blog', label: 'Blog', position: 'left'},
           {to: 'https://github.com/jordan-mace', label: 'GitHub', position: 'right'},
           {to: 'https://www.linkedin.com/in/jordan-mace/', label: 'LinkedIn', position: 'right'},
-          {to: 'https://mastodon.mace.au/@jordan', label: 'Mastodon', position: 'right'},
+          {to: 'https://mastodon.mace.au/@jordan', label: 'Mastodon', position: 'right', rel: 'me'},
         ],
       },
       footer: {

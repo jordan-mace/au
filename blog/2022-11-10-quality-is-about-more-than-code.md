@@ -7,6 +7,8 @@ tags: [testing, quality, shift-left]
 
 When you think about the role of someone in Quality Assurance / Quality Analysis, what do you think of? An individual responsible for testing features? An engineer responsible for writing end-to-end automation tests for web or native mobile apps? Perhaps even a coach whose responsibilities surround ensuring good test coverage for the product. The purpose of this article is to give you two examples that a Quality Analyst can use to think outside the box in terms of possible improvements that can be made.
 
+<!-- truncate -->
+
 > Quality coaching as a practice is about more than just focusing on the code of a product.
 
 Quality coaching involves identifying areas of improvement in everything from the ways of working of a team, to the CI/CD pipelines configured for releasing changes, to the way boards are configured on change management tools.

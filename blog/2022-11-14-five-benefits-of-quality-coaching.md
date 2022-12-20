@@ -7,6 +7,8 @@ tags: [testing, quality, shift-left]
 
 There are key differences between the commonly adopted traditional methodology of software testing in the [SDLC](https://en.wikipedia.org/wiki/Systems_development_life_cycle), whereby a tester is simply there to verify and validate functionality of a product, and the ‘Quality Coaching’ approach.
 
+<!-- truncate -->
+
 What is Quality Coaching?
 -------------------------
 
