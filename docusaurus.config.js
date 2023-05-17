@@ -6,9 +6,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/duotoneDark');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Jordan Mace",
-  tagline: '🧪 Quality Coach in Melbourne, Australia',
-  url: 'https://jordan.mace.au',
+  title: "Automatica",
+  tagline: 'Your destination for test automation guides',
+  url: 'https://blog.automationtestkit.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -37,7 +37,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/jordan-mace/au/tree/main/',
+            'https://github.com/jordan-mace/autotestkitblog/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -45,7 +45,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/jordan-mace/au/tree/main/',
+            'https://github.com/jordan-mace/autotestkitblog/tree/main/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -64,9 +64,6 @@ const config = {
         },
         items: [
           {to: '/blog', label: 'Blog', position: 'left'},
-          {to: 'https://github.com/jordan-mace', label: 'GitHub', position: 'right'},
-          {to: 'https://www.linkedin.com/in/jordan-mace/', label: 'LinkedIn', position: 'right'},
-          {to: 'https://mastodon.mace.au/@jordan', label: 'Mastodon', position: 'right', rel: 'me'},
         ],
       },
       footer: {
