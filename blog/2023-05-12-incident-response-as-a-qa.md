@@ -3,6 +3,7 @@ slug: incident-response-as-a-qa
 title: Incident response as a QA
 authors: jordan
 tags: [quality, devops]
+image: https://images.pexels.com/photos/280076/pexels-photo-280076.jpeg
 ---
 
 This may surprise you, but I think Quality Analysts should be exposed to the incident response world at least once or twice every six months. Hear me out.
