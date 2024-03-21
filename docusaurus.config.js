@@ -33,10 +33,6 @@ const config = {
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        gtag: {
-          trackingID: 'G-MNJ6NXS7F9',
-          anonymizeIP: false
-        },
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
@@ -85,6 +81,13 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
+
+    plugins: [
+      [
+        "@gracefullight/docusaurus-plugin-cloudflare-analytics",
+        { token: "bcc9d88c50ee4c198a07d128e8351877" },
+      ],
+    ],
 };
 
 module.exports = config;
