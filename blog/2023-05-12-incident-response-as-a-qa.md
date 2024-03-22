@@ -2,6 +2,7 @@
 slug: incident-response-as-a-qa
 title: Incident response as a QA
 authors: jordan
+image: https://images.pexels.com/photos/280076/pexels-photo-280076.jpeg
 tags: [quality, devops]
 ---
 ![](https://images.pexels.com/photos/280076/pexels-photo-280076.jpeg)
