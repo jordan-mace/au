@@ -65,6 +65,9 @@ const config = {
           {to: 'https://mastodon.mace.au/@jordan', label: 'Mastodon', position: 'right', rel: 'me'},
         ],
       },
+      metadata: [
+        {name: 'keywords', content: 'selenium, qa, quality, cypress, testing, software engineering, software'},
+      ],
       footer: {
         style: 'dark',
         links: [
