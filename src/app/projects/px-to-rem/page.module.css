@@ -1,0 +1,11 @@
+.project {
+    padding-bottom: 80px;
+}
+
+@media (max-width: 600px) {
+    .project {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 80px;
+    }
+}

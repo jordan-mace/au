@@ -1,12 +1,30 @@
-import { readdirSync, readFileSync } from "fs";
+import { readdirSync } from "fs";
 
 export const getPosts = () => {
-    var files: string[] = readdirSync("./src/content", "utf-8");
+    const files: string[] = readdirSync("./src/content", "utf-8");
     return files.map(x => {
-        const mdx = readFileSync(`./src/content/${x}`, "utf-8");
         return {
-            slug: x,
-            content: mdx
+            slug: x.replace('.mdx', '')
         }
     })
+}
+
+const getMetadata = async (fileName: string) => {
+    const { frontmatter } = await import(`@/content/${fileName}`)
+
+    return {
+        title: frontmatter.title,
+        createdAt: frontmatter.date,
+        keywords: frontmatter.keywords,
+        slug: fileName.replace('.mdx', ''),
+    }
+}
+
+export async function getPostsWithMetadata() {
+    const files: string[] = readdirSync("./src/content", "utf-8");
+    const posts = [];
+    for (const file of files) {
+        posts.push(await getMetadata(file))
+    }
+    return posts;
 }

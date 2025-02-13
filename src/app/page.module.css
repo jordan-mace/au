@@ -5,13 +5,10 @@
 
   --button-primary-hover: #383838;
   --button-secondary-hover: #f2f2f2;
-
   display: grid;
   grid-template-rows: 20px 1fr 20px;
   align-items: center;
   justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
   gap: 64px;
   font-family: var(--font-geist-sans);
 }
@@ -23,7 +20,7 @@
   justify-content: center;
   justify-items: center;
   gap: 64px;
-  padding: 1.5rem;
+  padding: 2rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -35,6 +32,10 @@
     --button-primary-hover: #ccc;
     --button-secondary-hover: #1a1a1a;
   }
+}
+
+.logo {
+  vertical-align: middle;
 }
 
 .main {
@@ -137,6 +138,10 @@ a.secondary {
 }
 
 @media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 16px;
+  }
   .page {
     padding: 32px;
     padding-bottom: 80px;

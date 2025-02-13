@@ -6,14 +6,32 @@
     --button-primary-hover: #383838;
     --button-secondary-hover: #f2f2f2;
   
-    display: grid;
-    grid-template-rows: 20px 1fr 20px;
-    align-items: center;
-    justify-items: center;
-    min-height: 100svh;
     padding: 80px;
-    gap: 64px;
     font-family: var(--font-geist-sans);
+  }
+
+  .post {
+    display: flex;
+    padding: 0 10rem 0 10rem;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .post h1 {
+    gap: 1.5rem;
+  }
+
+  .post h2 {
+    gap: 1rem;
+  }
+
+  .sidebar {
+    width: 50%;
+  }
+
+  .page ul {
+    text-align: left;
+    align-items: flex-start;
   }
   
   .navbar {
@@ -38,9 +56,7 @@
   }
   
   .main {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+    gap: 1.5rem;
     grid-row-start: 2;
   }
   
