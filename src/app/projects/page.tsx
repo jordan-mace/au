@@ -11,7 +11,13 @@ export const metadata: Metadata = {
     description: "A collection of small side projects I've put together",
 }
 
-const Project = ({ name, description, path }) => {
+interface ProjectProps {
+    name: string;
+    description: string;
+    path: string;
+}
+
+const Project = ({ name, description, path }: ProjectProps) => {
     return (
         <div>
             <h3>{name}</h3>

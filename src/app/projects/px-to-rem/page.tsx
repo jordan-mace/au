@@ -28,7 +28,7 @@ export default function Page() {
         <div className={styles.project}>
             <CenteredH1>Pixel to rem</CenteredH1>
             <Inline>
-                <StyledInput type="number" value={pixels} onChange={e => setPixels(e.target.value)} /> px is equal to <StyledInput type="number" value={pixels / 16} onChange={e => setPixels(e.target.value * 16)} />rem
+                <StyledInput type="number" value={pixels} onChange={e => setPixels(parseInt(e.target.value))} /> px is equal to <StyledInput type="number" value={pixels / 16} onChange={e => setPixels(parseFloat(e.target.value) * 16)} />rem
             </Inline>
         </div>
     )
