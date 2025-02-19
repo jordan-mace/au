@@ -1,7 +1,8 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import styles from './page.module.css'
+import ControlledInput from './ControlledInput'
 
 const Inline = styled.div`
     display: flex;
@@ -14,7 +15,7 @@ const Inline = styled.div`
 }
 `
 
-const StyledInput = styled.input`
+const StyledInput = styled(ControlledInput)`
     text-decoration: none;
     text-align: center;
     border: none;
@@ -30,14 +31,24 @@ const CenteredH1 = styled.h1`
     padding-bottom: 1rem;
 `
 export default function Page() {
-    const [pixels, setPixels] = useState(64)
+    const [pixels, setPixels] = useState(64);
+    const [rem, setRem] = useState(4);
+
+    useEffect(() => {
+        setRem(pixels / 16)
+    }, [pixels])
+
+    useEffect(() => {
+        setPixels(rem * 16)
+    }, [rem])
+
     return (
         <div className={styles.project}>
             <CenteredH1>Pixel to rem</CenteredH1>
             <Inline>
-                <StyledInput type="number" value={pixels} onChange={e => setPixels(parseInt(e.target.value))} />px
+                <StyledInput value={pixels + "px"} onChange={e => setPixels(parseInt(e.target.value))} />
                 <p>is equal to </p>
-                <StyledInput type="number" value={pixels / 16} onChange={e => setPixels(parseFloat(e.target.value) * 16)} />
+                <StyledInput value={rem + "rem"} onChange={e => setRem(parseFloat(e.target.value))} />
             </Inline>
         </div>
     )
