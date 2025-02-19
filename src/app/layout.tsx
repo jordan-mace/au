@@ -28,11 +28,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Navbar />
         <div className={styles.page}>
           <main className={styles.main}>
             {children}
           </main>
+        </div>
         </div>
       </body>
     </html>

@@ -30,7 +30,6 @@ const Project = ({ name, description, path }: ProjectProps) => {
 export default async function Page() {
     return (
         <div>
-            <h1>Projects</h1>
             <p style={{ paddingBottom: '2rem'}}>This is a collection of small side projects I&apos;ve put together</p>
             <ul>
                 {projects.map(x => <Project key={x.name} {...x} />)}

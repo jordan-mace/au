@@ -37,7 +37,7 @@ Selenium has a concept of a 'stale element' - that is an element that was on the
 Stale elements can happen when the content of a web page is updated or refreshed asynchronously, which is a common occurrence in modern web applications built with frameworks like React, Angular, or Vue.js.
 
 Why does this happen? Well Selenium is built using client/server architecture as shown below:
-![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.lambdatest.com%2Fblog%2Fwp-content%2Fuploads%2F2018%2F12%2FSelenium-WebDriver-Architecture-Diagram-1.png&f=1&nofb=1&ipt=1a0d6fdbec744f21042012a257d2093d2aa646cdd95d3d8f8e6d9bbf6b6deccc&ipo=images)
+![](/assets/selenium-over-cypress/Selenium-WebDriver-Architecture-Diagram-1-1915741186.webp)
 
 In the short timespan between these requests, the page can change. Since Selenium keeps a reference to the element based on its initial location in the DOM, any changes that occur during this short window of time can result in an invalid element. 
 
@@ -56,7 +56,7 @@ To try to avoid these issues, Selenium users often resort to using explicit wait
 This is in my opinion Selenium's biggest flaw, and not one that they will likely ever fix.
 
 Cypress on the other hand does not have these issues.
-![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.tutorialspoint.com%2Fcypress%2Fimages%2Fcypress_architecture.jpg&f=1&nofb=1&ipt=bba234022796dc04e7a963f325ecfb075474f6c26c3014bc033e9612a1b47641&ipo=images)
+![](/assets/selenium-over-cypress/cypress_architecture-1354562555.webp)
 
 Due to its architecture, Cypress has some significant advantages:
 * Cypress has direct access to the DOM. This allows Cypress to maintain a real-time view of the DOM and easily handle dynamic changes.

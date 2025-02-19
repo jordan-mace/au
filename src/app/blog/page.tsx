@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { getPostsWithMetadata } from '../lib/posts'
-import styles from './page.module.css'
 import { Metadata } from 'next';
 
 const parseMdxDate = (date: string) => {
@@ -26,15 +25,15 @@ export default async function Page() {
   const posts = await getPostsWithMetadata()
 
   return (
-    <div className={styles.posts}>
+    <div>
       <ul>
         {posts.filter((x) => isInPast(x.createdAt))
           .sort(function (x, y) {
             return parseMdxDate(y.createdAt).getDate() - parseMdxDate(x.createdAt).getDate()
           })
           .map((post) => (
-            <div key={post.slug} className={styles.post}>
-              <Link href={`/blog/${encodeURIComponent(post.slug)}`}><b>{post.title}</b></Link>
+            <div key={post.slug} style={{ paddingBottom: '2rem'}}>
+              <Link href={`/blog/${encodeURIComponent(post.slug)}`}><h2>{post.title}</h2></Link>
               <p>{post.createdAt}</p>
             </div>
           ))}
