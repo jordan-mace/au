@@ -14,6 +14,7 @@
 }
 
 .navbar {
+  font-family: var(--font-geist-sans);
   display: flex;
   flex-direction: row;
   align-items: center;
