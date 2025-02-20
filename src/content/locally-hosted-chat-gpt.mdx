@@ -6,29 +6,9 @@ tags: ai, chatgpt
 ---
 
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-![](/assets/open-webui/screenshot.webp)
-
-I've recently been toying around with the rapidly advancing AI tech that is ChatGPT, and now DeepSeek R1. With everything moving so quickly, it's very likely that this information will become outdated, so I'll avoid mentioning specific model usage and focus more on how you can get yourself up and running with a cost efficient, reliable interface for interacting with LLMs.
-
-For context, I've got a homelab running Fedora, and my applications are all containerised with Docker Compose.
-
-## Why DIY?
-
-So why bother going through all the effort of setting up your own infrastructure? Surprisingly, cost is a factor here. Right now a subscription to ChatGPT for personal usage is $20 per month. With one of these subscriptions you get access to OpenAI's GPT models, voice mode, reasoning models, extended limits on file uploads, messaging and image generation.
-
-Thankfully, the open source community comes in with a fantastic tool that can achieve most, if not all of what ChatGPT is offering.
-
-### LibreChat
-
-[LibreChat](https://librechat.ai) is an open source, self hosted user interface for interacting with LLMs. LibreChat has a range of features and was the first app that I deployed locally to interact with my LLMs.
-
-LibreChat has its pros and cons, but generally speaking I used it without issues for a few months. One thing worth noting though is there are multiple services required to run to host LibreChat locally.
-
-This is an example docker compose file for LibreChat copied from [GitHub](https://github.com/danny-avila/LibreChat/blob/main/deploy-compose.yml):
-
-<SyntaxHighlighter language="yaml" style={docco} children={`services:
+export const dockerYml = `services:
   api:
     # build:
     #   context: .
@@ -114,23 +94,9 @@ This is an example docker compose file for LibreChat copied from [GitHub](https:
       - .env
 volumes:
   pgdata2:
-`} />
+`;
 
-Notice that there's quite a bit going on here. The LibreChat app itself is the `api` service, but it requires `mongodb` to handle I believe the auth system and I'm assuming chat history. We can ignore the `client` because that's just NGINX but the `vectordb`, `rag_api` and `meilisearch` are all additional services that need to run.
-
-In contrast to this, Open WebUI, another open source project for interfacing with LLMs is a single service within Docker Compose.
-
-### Open WebUI
-
-[Open WebUI](https://openwebui.com/) does a fantastic job of replicating the ChatGPT interface, and comes with a huge range of features.
-
-It supports OAuth, Code Evaluation, Calls (Yes, you can talk to the LLM naturally) and a range of other cool features.
-
-## Docker Compose
-
-Currently, my docker compose file looks like this:
-
-<SyntaxHighlighter language="yaml" style={docco} children={`services:
+export const myYml = `services:
   open-webui:
     image: ghcr.io/open-webui/open-webui:main
     container_name: open-webui
@@ -150,7 +116,50 @@ Currently, my docker compose file looks like this:
       - 'OPENAI_API_BASE_URL=https://openrouter.ai/v1'
       - 'OPENAI_API_KEY={OPENROUTER_API_KEY}'
     restart: unless-stopped
-`}/>
+`;
+
+![](/assets/open-webui/screenshot.webp)
+
+I've recently been toying around with the rapidly advancing AI tech that is ChatGPT, and now DeepSeek R1. With everything moving so quickly, it's very likely that this information will become outdated, so I'll avoid mentioning specific model usage and focus more on how you can get yourself up and running with a cost efficient, reliable interface for interacting with LLMs.
+
+For context, I've got a homelab running Fedora, and my applications are all containerised with Docker Compose.
+
+## Why DIY?
+
+So why bother going through all the effort of setting up your own infrastructure? Surprisingly, cost is a factor here. Right now a subscription to ChatGPT for personal usage is $20 per month. With one of these subscriptions you get access to OpenAI's GPT models, voice mode, reasoning models, extended limits on file uploads, messaging and image generation.
+
+Thankfully, the open source community comes in with a fantastic tool that can achieve most, if not all of what ChatGPT is offering.
+
+### LibreChat
+
+[LibreChat](https://librechat.ai) is an open source, self hosted user interface for interacting with LLMs. LibreChat has a range of features and was the first app that I deployed locally to interact with my LLMs.
+
+LibreChat has its pros and cons, but generally speaking I used it without issues for a few months. One thing worth noting though is there are multiple services required to run to host LibreChat locally.
+
+This is an example docker compose file for LibreChat copied from [GitHub](https://github.com/danny-avila/LibreChat/blob/main/deploy-compose.yml):
+
+
+<SyntaxHighlighter language="yaml" wrapLongLines wrapLines showLineNumbers style={a11yDark}>
+{dockerYml}
+</SyntaxHighlighter>
+
+Notice that there's quite a bit going on here. The LibreChat app itself is the `api` service, but it requires `mongodb` to handle I believe the auth system and I'm assuming chat history. We can ignore the `client` because that's just NGINX but the `vectordb`, `rag_api` and `meilisearch` are all additional services that need to run.
+
+In contrast to this, Open WebUI, another open source project for interfacing with LLMs is a single service within Docker Compose.
+
+### Open WebUI
+
+[Open WebUI](https://openwebui.com/) does a fantastic job of replicating the ChatGPT interface, and comes with a huge range of features.
+
+It supports OAuth, Code Evaluation, Calls (Yes, you can talk to the LLM naturally) and a range of other cool features.
+
+## Docker Compose
+
+Currently, my docker compose file looks like this:
+
+<SyntaxHighlighter language="yaml" wrapLongLines wrapLines showLineNumbers style={a11yDark}>
+{myYml}
+</SyntaxHighlighter>
 
 Let's quickly go through each of my environment variables to explain. Firstly, I'm using Authentik as my SSO provider for my applications, so I've had to configure the `OAUTH` variables accordingly. 
 

@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nexus",
+  title: "Jordan Mace",
   authors: [{ name: "Jordan Mace" }],
   description: "Jordan Mace's personal website",
 };

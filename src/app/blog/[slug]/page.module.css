@@ -3,7 +3,15 @@
   }
 
 @media (max-width: 600px) {
-    .post {
-        padding: 0;
+    .post p {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .post h1,
+    .post h2,
+    .post h3 {
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 }

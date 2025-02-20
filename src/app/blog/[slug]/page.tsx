@@ -14,7 +14,7 @@ export default async function Page({
   const thisPost = posts.find(x => x.slug === slug);
   const { default: Post } = await import(`@/content/${slug}.mdx`)
 
-  return  <Container>
+  return  <Container disableGutters maxWidth="md">
         <div className={styles.post}>
         <h1>{thisPost?.title}</h1>
         <Post />

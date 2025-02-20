@@ -36,8 +36,6 @@
 
 .navbar {
   font-family: var(--font-geist-sans);
-  background: rgba(0, 0, 0, 0.5); /* Transparent grey overlay */
-  color: white;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -164,8 +162,6 @@ a.secondary {
   }
 
   .page {
-    padding: 0 1rem 0 1rem;
-    overflow-x: scroll;
     gap: 1rem;
   }
 
