@@ -1,6 +1,6 @@
-import Link from 'next/link'
 import { getPostsWithMetadata } from '../lib/posts'
 import { Metadata } from 'next';
+import Posts from './Posts';
 
 const parseMdxDate = (date: string) => {
   const parts = date.split("/");
@@ -24,20 +24,8 @@ export const metadata: Metadata = {
 export default async function Page() {
   const posts = await getPostsWithMetadata()
 
-  return (
-    <div>
-      <ul>
-        {posts.filter((x) => isInPast(x.createdAt))
-          .sort(function (x, y) {
-            return parseMdxDate(y.createdAt).getDate() - parseMdxDate(x.createdAt).getDate()
-          })
-          .map((post) => (
-            <div key={post.slug} style={{ paddingBottom: '2rem'}}>
-              <Link href={`/blog/${encodeURIComponent(post.slug)}`}><h2>{post.title}</h2></Link>
-              <p>{post.createdAt}</p>
-            </div>
-          ))}
-      </ul>
-    </div>
-  )
+  return (<Posts posts={posts.filter((x) => isInPast(x.createdAt))
+    .sort(function (x, y) {
+      return parseMdxDate(y.createdAt).getDate() - parseMdxDate(x.createdAt).getDate()
+    })} />)
 }

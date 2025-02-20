@@ -1,6 +1,7 @@
 import { getPosts, getPostsWithMetadata } from "@/app/lib/posts";
 import styles from './page.module.css'
 import { Metadata } from "next";
+import Link from "next/link";
 
 export default async function Page({
   params,
@@ -15,6 +16,9 @@ export default async function Page({
   return <div className={styles.post}>
         <h1>{thisPost?.title}</h1>
         <Post />
+        {thisPost?.keywords ? <div style={{display: 'flex', gap: '1rem'}}>Tags: {thisPost?.keywords.split(", ").map(x => 
+          <Link key={x} href={`/blog/tags/${encodeURIComponent(x)}`} className={styles.keyword}>{x}</Link>
+        )}</div> : null}
       </div>
 }
 

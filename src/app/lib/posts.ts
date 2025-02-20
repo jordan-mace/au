@@ -9,15 +9,22 @@ export const getPosts = () => {
     })
 }
 
+export interface Post {
+    title: string;
+    createdAt: string;
+    keywords: string;
+    slug: string;
+}
+
 const getMetadata = async (fileName: string) => {
     const { frontmatter } = await import(`@/content/${fileName}`)
 
     return {
         title: frontmatter.title,
         createdAt: frontmatter.date,
-        keywords: frontmatter.keywords,
+        keywords: frontmatter.tags,
         slug: fileName.replace('.mdx', ''),
-    }
+    } as Post
 }
 
 export async function getPostsWithMetadata() {
