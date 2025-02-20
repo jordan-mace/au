@@ -10,10 +10,6 @@ const parseMdxDate = (date: string) => {
   return dt;
 }
 
-const isInPast = (date: string) => {
-  return parseMdxDate(date).getDate() <= new Date().getDate();
-}
-
 export const metadata: Metadata = {
   title: "Blog",
   description: "Jordan Mace's blog posts",
@@ -24,7 +20,7 @@ export const metadata: Metadata = {
 export default async function Page() {
   const posts = await getPostsWithMetadata()
 
-  return (<Posts posts={posts.filter((x) => isInPast(x.createdAt))
+  return (<Posts posts={posts
     .sort(function (x, y) {
       return parseMdxDate(y.createdAt).getDate() - parseMdxDate(x.createdAt).getDate()
     })} />)
