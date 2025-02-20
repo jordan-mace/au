@@ -3,7 +3,7 @@ import styles from './page.module.css'
 export default function Home() {
   return (
     <div>
-      <video autoPlay loop muted className={styles.backgroundVideo}>
+      <video autoPlay loop muted playsInline className={styles.backgroundVideo}>
         <source src="/2818546-hd_1280_720_24fps.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
