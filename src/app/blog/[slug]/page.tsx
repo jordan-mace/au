@@ -4,6 +4,12 @@ import Link from "next/link";
 import styles from './page.module.css'
 import { Container } from "@mui/material";
 
+const Tags = ({ tags }: { tags: string[] }) => {
+  return <div style={{display: 'flex', gap: '1rem'}}>Tags: {tags.map(x => 
+    <Link key={x} href={`/blog/tags/${encodeURIComponent(x)}`}>{x}</Link>
+  )}</div>
+}
+
 export default async function Page({
   params,
 }: {
@@ -18,9 +24,7 @@ export default async function Page({
         <div className={styles.post}>
         <h1>{thisPost?.title}</h1>
         <Post />
-        {thisPost?.keywords ? <div style={{display: 'flex', gap: '1rem'}}>Tags: {thisPost?.keywords.split(", ").map(x => 
-          <Link key={x} href={`/blog/tags/${encodeURIComponent(x)}`}>{x}</Link>
-        )}</div> : null}
+        {thisPost?.keywords ? <Tags tags={thisPost?.keywords.split(", ")} /> : null}
       </div>
       </Container> 
 }
